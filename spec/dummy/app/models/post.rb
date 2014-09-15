@@ -1,3 +1,3 @@
 class Post < ActiveRecord::Base
-  include SuperbWysiwyg::Concerns::Blockable
+  include SuperbTextConstructor::Concerns::Blockable
 end

@@ -1,3 +1,3 @@
-# SuperbWysiwyg
+# SuperbTextConstructor
 
 This project rocks and uses MIT-LICENSE.

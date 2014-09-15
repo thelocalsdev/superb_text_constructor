@@ -1,7 +1,7 @@
-require 'superb_wysiwyg/engine'
-require 'superb_wysiwyg/view_helpers'
+require 'superb_text_constructor/engine'
+require 'superb_text_constructor/view_helpers'
 
-module SuperbWysiwyg
+module SuperbTextConstructor
   mattr_accessor :configs_path
   mattr_accessor :default_namespace
 

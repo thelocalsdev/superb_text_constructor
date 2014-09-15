@@ -1,4 +1,4 @@
-module SuperbWysiwyg
+module SuperbTextConstructor
   
   module ViewHelpers
 
@@ -15,10 +15,10 @@ module SuperbWysiwyg
     # @param block [Block] single block to be rendered
     # @return [ActiveSupport::SafeBuffer] rendered HTML code
     def render_block(block)
-      if lookup_context.template_exists?("superb_wysiwyg/blocks/#{block.namespace}/#{block.template}", nil, true)
-        render partial: "superb_wysiwyg/blocks/#{block.namespace}/#{block.template}", object: block, as: :block
+      if lookup_context.template_exists?("superb_text_constructor/blocks/#{block.namespace}/#{block.template}", nil, true)
+        render partial: "superb_text_constructor/blocks/#{block.namespace}/#{block.template}", object: block, as: :block
       else
-        render partial: "superb_wysiwyg/blocks/#{SuperbWysiwyg.default_namespace}/#{block.template}", object: block, as: :block
+        render partial: "superb_text_constructor/blocks/#{SuperbTextConstructor.default_namespace}/#{block.template}", object: block, as: :block
       end
     end
 

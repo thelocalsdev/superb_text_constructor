@@ -1,4 +1,4 @@
-module SuperbWysiwyg
+module SuperbTextConstructor
   module ApplicationHelper
   end
 end

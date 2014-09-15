@@ -1,12 +1,12 @@
 $:.push File.expand_path('../lib', __FILE__)
 
 # Maintain your gem's version:
-require 'superb_wysiwyg/version'
+require 'superb_text_constructor/version'
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = 'superb_wysiwyg'
-  s.version     = SuperbWysiwyg::VERSION
+  s.name        = 'superb_text_constructor'
+  s.version     = SuperbTextConstructor::VERSION
   s.authors     = ['Alexander Borovykh']
   s.email       = ['immaculate.pine@gmail.com']
   s.homepage    = ''

@@ -1,4 +1,4 @@
-module SuperbWysiwyg
+module SuperbTextConstructor
   module Concerns
     module Block
       extend ActiveSupport::Concern
@@ -14,14 +14,14 @@ module SuperbWysiwyg
 
         validates_presence_of :blockable
         validates :position, presence: true, numericality: { only_integer: true, greater_than: 0 }
-        validates :template, presence: true, inclusion: { in: SuperbWysiwyg.templates }
-        SuperbWysiwyg.fields.each do |field|
+        validates :template, presence: true, inclusion: { in: SuperbTextConstructor.templates }
+        SuperbTextConstructor.fields.each do |field|
           validates field.to_sym, presence: true, if: -> (block) { block.fields[field].try(:fetch, 'required', nil) == true }
         end
       end
 
       # Define methods for reading/writing serialized data
-      SuperbWysiwyg.fields.each do |field|
+      SuperbTextConstructor.fields.each do |field|
         next if method_defined?(field)
 
         define_method field do
@@ -53,7 +53,7 @@ module SuperbWysiwyg
 
       # @return [Hash] template options
       def template_options
-        SuperbWysiwyg.blocks_for(namespace)[template] || {}
+        SuperbTextConstructor.blocks_for(namespace)[template] || {}
       end
 
       # @return [Hash] available fields for this block

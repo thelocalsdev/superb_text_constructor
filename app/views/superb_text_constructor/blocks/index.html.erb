@@ -1,11 +1,11 @@
 <div class="container">
   <div class="blocks" data-reorder-url="<%= reorder_blocks_path %>">
-    <%= render partial: 'superb_wysiwyg/blocks/editor/block', collection: @blocks, as: :block %>
+    <%= render partial: 'superb_text_constructor/blocks/editor/block', collection: @blocks, as: :block %>
   </div>
 </div>
 
 <div class="container">
-  <% SuperbWysiwyg.blocks_for(@parent.class.name.underscore).group_by { |block, options| (options || {})['group'] }.each do |group, blocks| %>
+  <% SuperbTextConstructor.blocks_for(@parent.class.name.underscore).group_by { |block, options| (options || {})['group'] }.each do |group, blocks| %>
     <% if group.present? %>
       <div class="btn-group">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">

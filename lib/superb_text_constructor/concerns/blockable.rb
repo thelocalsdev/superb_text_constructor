@@ -1,4 +1,4 @@
-module SuperbWysiwyg
+module SuperbTextConstructor
   module Concerns
     module Blockable
       extend ActiveSupport::Concern

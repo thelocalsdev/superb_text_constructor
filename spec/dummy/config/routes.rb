@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'posts#index'
 
   resources :posts do
-    mount SuperbWysiwyg::Engine => '/wysiwyg'
+    mount SuperbTextConstructor::Engine => '/wysiwyg'
   end
 
 end

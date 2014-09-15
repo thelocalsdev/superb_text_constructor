@@ -1,5 +1,5 @@
-module SuperbWysiwyg
-  class BlocksController < SuperbWysiwyg::ApplicationController
+module SuperbTextConstructor
+  class BlocksController < SuperbTextConstructor::ApplicationController
     before_action :set_parent
     before_action :set_block, only: [:edit, :update, :destroy]
 
@@ -80,7 +80,7 @@ module SuperbWysiwyg
 
       # @return [Array<Symbol>] attributes that are always permitted for mass assignment
       def default_permitted_attributes
-        permitted_attributes = SuperbWysiwyg.fields.map(&:to_sym)
+        permitted_attributes = SuperbTextConstructor.fields.map(&:to_sym)
         permitted_attributes << :template
         permitted_attributes
       end

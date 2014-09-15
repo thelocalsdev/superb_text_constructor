@@ -14,7 +14,7 @@
         <td><%= post.title %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'WYSIWYG', post_superb_wysiwyg_path(post) %></td>
+        <td><%= link_to 'WYSIWYG', post_superb_text_constructor_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

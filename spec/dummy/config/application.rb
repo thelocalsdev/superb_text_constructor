@@ -3,7 +3,7 @@ require File.expand_path('../boot', __FILE__)
 require 'rails/all'
 
 Bundler.require(*Rails.groups)
-require "superb_wysiwyg"
+require "superb_text_constructor"
 require "jquery-rails"
 
 module Dummy

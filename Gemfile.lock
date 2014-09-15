@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    superb_wysiwyg (0.0.1)
+    superb_text_constructor (0.0.1)
       coffee-rails (~> 4.0.0)
       jquery-rails
       rails (~> 4.1.0)
@@ -133,4 +133,4 @@ DEPENDENCIES
   factory_girl_rails
   rspec-rails
   sqlite3
-  superb_wysiwyg!
+  superb_text_constructor!

@@ -3,7 +3,7 @@
     <%= f.hidden_field :template %>
 
     <% @block.fields.each do |field, options| %>
-      <%= render partial: "superb_wysiwyg/blocks/fields/#{options['type']}", locals: { f: f, field: field, options: options } %>
+      <%= render partial: "superb_text_constructor/blocks/fields/#{options['type']}", locals: { f: f, field: field, options: options } %>
     <% end %>
 
     <div class="form-group">

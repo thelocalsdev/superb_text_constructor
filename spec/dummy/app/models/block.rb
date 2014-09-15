@@ -1,3 +1,3 @@
 class Block < ActiveRecord::Base
-  include SuperbWysiwyg::Concerns::Block
+  include SuperbTextConstructor::Concerns::Block
 end
