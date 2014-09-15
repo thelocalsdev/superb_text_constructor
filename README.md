@@ -39,7 +39,7 @@ It is `default` by default, but you can override it:
 
 ### additional_permitted_attributes
 
-By default it permits all the attributes described in YAML config. Sometimes it is not enough, e.g. when you add relations to Block model. These additional attributes should be listed here:
+By default it permits all the attributes described in YAML config. Sometimes it is not enough, e.g. when you add relations to Block model. You can override BlocksController, but there is easier way if no other overrides are required. List those additional attributes in config like that:
 
     SuperbTextConstructor.additional_permitted_attributes = {
       item_ids: [],

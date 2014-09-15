@@ -1,3 +1,3 @@
 class Post < ActiveRecord::Base
-  include SuperbTextConstructor::Concerns::Blockable
+  include SuperbTextConstructor::Concerns::Models::Blockable
 end

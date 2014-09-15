@@ -1,3 +1,3 @@
 class Block < ActiveRecord::Base
-  include SuperbTextConstructor::Concerns::Block
+  include SuperbTextConstructor::Concerns::Models::Block
 end
