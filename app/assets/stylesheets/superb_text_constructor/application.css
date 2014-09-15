@@ -12,6 +12,7 @@
  *
  *= require ./bootstrap
  *= require ./_bootstrap-sprockets
+ *= require ./layout
  *= require ./blocks
  *= require_self
  */
