@@ -14,10 +14,13 @@ Gem::Specification.new do |s|
   s.description = 'Mountable WYSIWYG editor for your Rails applications'
   s.license     = 'MIT'
 
-  s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
-  s.test_files = Dir['test/**/*']
+  s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
+  s.test_files = Dir['spec/**/*']
 
   s.add_dependency 'rails', '~> 4.1.0'
+  s.add_dependency 'jquery-rails'
+  s.add_dependency 'sass-rails', '~> 4.0.3'
+  s.add_dependency 'coffee-rails', '~> 4.0.0'
 
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'factory_girl_rails'

@@ -1,0 +1,24 @@
+<div id="<%= block.id %>" class="block row well">
+  <div class="col-lg-11">
+    <%= render partial: "superb_wysiwyg/blocks/editor/#{block.template}", object: block, as: :block %>
+  </div>
+
+  <div class="col-lg-1 text-center">
+    <div class="template">
+      <span class="label label-default"><%= block.template %></span>
+    </div>
+
+    <div>
+      <% unless block.auto? %>
+        <%= link_to edit_block_path(block) do %>
+          <i class="glyphicon glyphicon-edit"></i>
+        <% end %>
+      <% end %>
+
+      <%= link_to block_path(block), method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <i class="glyphicon glyphicon-trash"></i>
+      <% end %>
+    </div>
+  </div>
+
+</div>

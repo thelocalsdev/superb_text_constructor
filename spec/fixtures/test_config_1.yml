@@ -1,0 +1,6 @@
+default:
+  text:
+    fields:
+      text:
+        type: string
+        required: true

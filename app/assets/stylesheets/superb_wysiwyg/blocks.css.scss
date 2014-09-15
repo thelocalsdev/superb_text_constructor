@@ -1,0 +1,15 @@
+.blocks {
+  .block {
+    background-color: #FFF;
+
+    .template {
+      margin-bottom: 10px;
+    }
+  }
+
+  .ui-state-highlight {
+    border: 1px dotted black;
+    margin-bottom: 15px;
+    height: 100px;
+  }
+}

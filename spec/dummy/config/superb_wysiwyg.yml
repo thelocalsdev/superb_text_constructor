@@ -1,0 +1,19 @@
+default:
+  h2:
+    group: headers
+    fields:
+      text:
+        type: string
+        required: true
+  h3:
+    group: headers
+    fields:
+      text:
+        type: string
+        required: true
+  text:
+    fields:
+      text:
+        type: text
+        required: true
+  separator:

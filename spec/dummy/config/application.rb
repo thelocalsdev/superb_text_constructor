@@ -4,6 +4,7 @@ require 'rails/all'
 
 Bundler.require(*Rails.groups)
 require "superb_wysiwyg"
+require "jquery-rails"
 
 module Dummy
   class Application < Rails::Application

@@ -5,10 +5,15 @@
   <%= stylesheet_link_tag    "superb_wysiwyg/application", media: "all" %>
   <%= javascript_include_tag "superb_wysiwyg/application" %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
-<%= yield %>
+  <div class="container">
+    <h1>WYSIWYG</h1>
+  </div>
+
+  <%= yield %>
 
 </body>
 </html>

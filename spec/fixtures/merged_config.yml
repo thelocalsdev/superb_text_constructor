@@ -1,0 +1,17 @@
+default:
+  text:
+    fields:
+      text:
+        type: string
+        required: true
+blog:
+  quote:
+    fields:
+      text:
+        type: string
+        required: true
+  text:
+    fields:
+      text:
+        type: string
+        required: true
