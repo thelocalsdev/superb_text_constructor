@@ -1,4 +1,5 @@
 require 'superb_wysiwyg/engine'
+require 'superb_wysiwyg/view_helpers'
 
 module SuperbWysiwyg
   mattr_accessor :configs_path
