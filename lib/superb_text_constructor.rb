@@ -5,8 +5,10 @@ require 'superb_text_constructor/route_mappings'
 module SuperbTextConstructor
   mattr_accessor :configs_path
   mattr_accessor :default_namespace
+  mattr_accessor :additional_permitted_attributes
 
   self.default_namespace = 'default'
+  self.additional_permitted_attributes = nil
 
   # @return [Hash] all available blocks in all namespaces
   def self.blocks

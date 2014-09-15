@@ -80,7 +80,7 @@ module SuperbTextConstructor
       # Concatenates default and additional permitted for mass assignment attributes
       # @return [Array<Symbol>] attributes
       def permitted_attributes
-        [default_permitted_attributes, additional_permitted_attributes].flatten.uniq.select(&:present?)
+        [default_permitted_attributes, SuperbTextConstructor.additional_permitted_attributes].flatten.uniq.select(&:present?)
       end
 
       # @return [Array<Symbol>] attributes that are always permitted for mass assignment
@@ -88,12 +88,6 @@ module SuperbTextConstructor
         permitted_attributes = SuperbTextConstructor.fields.map(&:to_sym)
         permitted_attributes << :template
         permitted_attributes
-      end
-
-      # Override this method to add more permitted attributes
-      # @return [Array<Symbol>] attributes that are permitted for mass assignment
-      def additional_permitted_attributes
-        []
       end
   end
 end
