@@ -67,26 +67,63 @@ There will be different sets of buttons in WYSIWYG editors depending on the conf
 
 ## Usage
 
-  Add WYSIWYG blocks support to any of your models by including `SuperbTextConstructor::Concerns::Blockable` mixin:
+### Setup model
+
+Add WYSIWYG blocks support to any of your models by including `SuperbTextConstructor::Concerns::Blockable` mixin:
 
       class Post < ActiveRecord::Base
         include SuperbTextConstructor::Concerns::Blockable
       end
 
-  Then add the following line to the `config/routes.rb`:
+### Setup routes
+
+Then add the following line to the `config/routes.rb`:
 
     superb_text_constructor_for :posts
 
-  It adds URL helpers for WYSIWYG editor. To open it use the following one:
+It adds URL helpers for WYSIWYG editor. To open it use the following one:
 
     = link_to 'Edit', post_superb_text_constructor_path(@post, namespace: :blog)
 
-  Used namespace should be specified in YAML config.
+Used namespace should be specified in YAML config.
 
-  To render the resulting page use this helper:
+### Setup views
+
+SuperbTextConstructor has few built-in blocks. Of course, you will add more in your YAML config. So, you have to provide partials for them. All partials should be placed in `app/views/superb_text_constructor/blocks` directory.
+
+The easiest case is when all your blocks have the same markup in all namespaces. Assume, that default namespace is called `default`. Then your directories tree will look like:
+
+    app
+      views
+        superb_text_constructor
+          blocks
+            default
+              _text.html.erb
+              _quote.html.erb
+              _button.html.erb
+              _big_red_button.html.erb
+
+It is not necessary to add built-in blocks here. The only reason to add these blocks is to override them.
+
+So, we have added partials for all the blocks in default namespace. But what if they should look different in blog (assuming, that `blog` is one of the namespaces)? In this case add new partials like that:
+
+    app
+      views
+        superb_text_constructor
+          blocks
+            default
+              _text.html.erb
+              ...
+            blog
+              _h2.html.erb
+              _h3.html.erb
+              _text.html.erb
+              ...
+
+To render the resulting page use this helper:
 
     = render_blocks @post.blocks
 
-  It will render post's blocks in default namespace (that was set in initializer or :default). Or you can specify it:
+It will render post's blocks using partials from default namespace. Or you can specify the namespace:
 
     = render_blocks @post.blocks, namespace: :blog
