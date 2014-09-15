@@ -1,6 +1,11 @@
-default:
+blocks:
   text:
     fields:
       text:
         type: string
         required: true
+
+namespaces:
+  default:
+    no_group:
+      - text

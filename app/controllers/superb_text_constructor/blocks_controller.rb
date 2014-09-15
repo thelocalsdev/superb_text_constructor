@@ -1,5 +1,6 @@
 module SuperbTextConstructor
   class BlocksController < SuperbTextConstructor::ApplicationController
+    before_action :set_namespace
     before_action :set_parent
     before_action :set_block, only: [:edit, :update, :destroy]
 
@@ -56,6 +57,10 @@ module SuperbTextConstructor
     end
 
     protected
+
+      def set_namespace
+        @namespace = params[:namespace]
+      end
 
       def set_parent
         parent_param_name, parent_id = params.select { |param| param.to_s.end_with?('_id') }.first

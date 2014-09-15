@@ -46,14 +46,9 @@ module SuperbTextConstructor
         end
       end
 
-      # @return [String] namespace
-      def namespace
-        blockable_type.to_s.underscore
-      end
-
       # @return [Hash] template options
       def template_options
-        SuperbTextConstructor.blocks_for(namespace)[template] || {}
+        SuperbTextConstructor.blocks[template] || {}
       end
 
       # @return [Hash] available fields for this block

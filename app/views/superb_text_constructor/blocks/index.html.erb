@@ -5,8 +5,12 @@
 </div>
 
 <div class="container">
-  <% SuperbTextConstructor.blocks_for(@parent.class.name.underscore).group_by { |block, options| (options || {})['group'] }.each do |group, blocks| %>
-    <% if group.present? %>
+  <% SuperbTextConstructor.namespaces[@namespace].each do |group, blocks| %>
+    <% if group == 'no_group' %>
+      <% blocks.each do |block, options| %>
+        <%= link_to block, new_block_path(template: block), class: 'btn btn-default' %>
+      <% end %>
+    <% else %>
       <div class="btn-group">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
           <%= group %> <span class="caret"></span>
@@ -17,10 +21,6 @@
           <% end %>
         </ul>
       </div>
-    <% else %>
-      <% blocks.each do |block, options| %>
-        <%= link_to block, new_block_path(template: block), class: 'btn btn-default' %>
-      <% end %>
     <% end %>
   <% end %>
 </div>

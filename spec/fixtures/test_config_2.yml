@@ -1,6 +1,12 @@
-blog:
+blocks:
   quote:
     fields:
       text:
         type: string
         required: true
+
+namespaces:
+  blog:
+    no_group:
+      - text
+      - quote

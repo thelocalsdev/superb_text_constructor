@@ -3,11 +3,11 @@ RSpec.describe SuperbTextConstructor do
     expect(SuperbTextConstructor::VERSION).not_to be_nil
   end
 
-  describe '.blocks, .namespaces, .fields' do
-    before { SuperbTextConstructor.instance_variable_set(:@blocks, nil) }
+  describe 'module methods' do
+    before { SuperbTextConstructor.instance_variable_set(:@config, nil) }
     before { @old_configs_path = SuperbTextConstructor.configs_path }
     after { SuperbTextConstructor.configs_path = @old_configs_path }
-    after { SuperbTextConstructor.instance_variable_set(:@blocks, nil) }
+    after { SuperbTextConstructor.instance_variable_set(:@config, nil) }
 
     shared_examples_for 'any' do
       it 'loads correct config' do
@@ -15,7 +15,7 @@ RSpec.describe SuperbTextConstructor do
       end
 
       it 'returns correct namespaces' do
-        expect(SuperbTextConstructor.namespaces).to eq(expected_namespaces)
+        expect(SuperbTextConstructor.namespaces.keys).to eq(expected_namespaces)
       end
 
       it 'returns correct fields' do
@@ -28,7 +28,7 @@ RSpec.describe SuperbTextConstructor do
     end
 
     context 'single file' do
-      let(:expected_blocks) { YAML.load_file("#{SuperbTextConstructor::Engine.root}/spec/fixtures/test_config_1.yml") }
+      let(:expected_blocks) { YAML.load_file("#{SuperbTextConstructor::Engine.root}/spec/fixtures/test_config_1.yml")['blocks'] }
       let(:expected_namespaces) { ['default'] }
       let(:expected_fields) { ['text'] }
       let(:expected_templates) { ['text'] }
@@ -37,7 +37,7 @@ RSpec.describe SuperbTextConstructor do
     end
 
     context 'multiple files' do
-      let(:expected_blocks) { YAML.load_file("#{SuperbTextConstructor::Engine.root}/spec/fixtures/merged_config.yml") }
+      let(:expected_blocks) { YAML.load_file("#{SuperbTextConstructor::Engine.root}/spec/fixtures/merged_config.yml")['blocks'] }
       let(:expected_namespaces) { ['default', 'blog'] }
       let(:expected_fields) { ['text'] }
       let(:expected_templates) { ['text', 'quote'] }
