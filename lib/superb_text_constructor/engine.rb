@@ -3,7 +3,8 @@ module SuperbTextConstructor
     isolate_namespace SuperbTextConstructor
 
     initializer 'superb_text_constructor.view_helpers' do |app|
-      ActionView::Base.send :include, SuperbTextConstructor::ViewHelpers
+      ActionView::Base.send :include, SuperbTextConstructor::ViewHelpers::RenderBlocksHelper
+      ActionView::Base.send :include, SuperbTextConstructor::ViewHelpers::SanitizeBlockHelper
     end
 
     initializer 'superb_text_constructor.assets' do |app|

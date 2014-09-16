@@ -1,5 +1,6 @@
 require 'superb_text_constructor/engine'
-require 'superb_text_constructor/view_helpers'
+require 'superb_text_constructor/view_helpers/render_blocks_helper'
+require 'superb_text_constructor/view_helpers/sanitize_block_helper'
 require 'superb_text_constructor/route_mappings'
 
 module SuperbTextConstructor
