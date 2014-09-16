@@ -5,5 +5,10 @@ module SuperbTextConstructor
     initializer 'superb_text_constructor.view_helpers' do |app|
       ActionView::Base.send :include, SuperbTextConstructor::ViewHelpers
     end
+
+    initializer 'superb_text_constructor.assets' do |app|
+      app.config.assets.precompile += %w( superb_text_constructor/custom.js superb_text_constructor/custom.css )
+    end
+
   end
 end
