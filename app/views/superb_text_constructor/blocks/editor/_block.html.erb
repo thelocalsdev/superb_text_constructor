@@ -5,7 +5,7 @@
 
   <div class="col-lg-1 text-center">
     <div class="template">
-      <span class="label label-default"><%= block.template %></span>
+      <span class="label label-default"><%= t("superb_text_constructor.blocks.#{block.template}") %></span>
     </div>
 
     <div>
@@ -15,7 +15,7 @@
         <% end %>
       <% end %>
 
-      <%= link_to block_path(block), method: :delete, data: { confirm: 'Are you sure?' } do %>
+      <%= link_to block_path(block), method: :delete, data: { confirm: t('superb_text_constructor.shared.are_you_sure') } do %>
         <i class="glyphicon glyphicon-trash"></i>
       <% end %>
     </div>
