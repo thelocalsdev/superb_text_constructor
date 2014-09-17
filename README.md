@@ -23,10 +23,10 @@ Install generator creates `config/initializers/superb_text_constructor.rb` file.
 SuperbTextConstructor blocks are configured by YAML files. Specify path to those files here:
 
     # If all your configs are in the single file
-    SuperbTextConstructor.configs_path = "#{Rails.root}/config/superb_text_constructor.yml"
+    config.configs_path = "#{Rails.root}/config/superb_text_constructor.yml"
 
     # If yor prefer to split config to separate files
-    SuperbTextConstructor.configs_path = [
+    config.configs_path = [
       "#{Rails.root}/config/superb_text_constructor_blocks.yml",
       "#{Rails.root}/config/superb_text_constructor_namespaces.yml"
     ]
@@ -35,13 +35,13 @@ SuperbTextConstructor blocks are configured by YAML files. Specify path to those
 
 It is `default` by default, but you can override it:
 
-    SuperbTextConstructor.default_namespace = 'blog'
+    config.default_namespace = 'blog'
 
 ### additional_permitted_attributes
 
-By default it permits all the attributes described in YAML config. Sometimes it is not enough, e.g. when you add relations to Block model. You can override BlocksController, but there is easier way if no other overrides are required. List those additional attributes in config like that:
+By default `BlocksController` permits all the attributes described in YAML config. Sometimes it is not enough, e.g. when you add relations to Block model. You can override BlocksController, but there is easier way if no other overrides are required. List those additional attributes in config like that:
 
-    SuperbTextConstructor.additional_permitted_attributes = {
+    config.additional_permitted_attributes = {
       item_ids: [],
       images_attributes: [:id, :image, :_destroy]
     }

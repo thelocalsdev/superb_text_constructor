@@ -5,8 +5,8 @@ RSpec.describe SuperbTextConstructor do
 
   describe 'module methods' do
     before { SuperbTextConstructor.instance_variable_set(:@config, nil) }
-    before { @old_configs_path = SuperbTextConstructor.configs_path }
-    after { SuperbTextConstructor.configs_path = @old_configs_path }
+    before { @old_configs_path = SuperbTextConstructor.configuration.configs_path }
+    after { SuperbTextConstructor.configuration.configs_path = @old_configs_path }
     after { SuperbTextConstructor.instance_variable_set(:@config, nil) }
 
     shared_examples_for 'any' do
@@ -32,7 +32,7 @@ RSpec.describe SuperbTextConstructor do
       let(:expected_namespaces) { ['default'] }
       let(:expected_fields) { ['text'] }
       let(:expected_templates) { ['text'] }
-      before { SuperbTextConstructor.configs_path = "#{SuperbTextConstructor::Engine.root}/spec/fixtures/test_config_1.yml" }
+      before { SuperbTextConstructor.configuration.configs_path = "#{SuperbTextConstructor::Engine.root}/spec/fixtures/test_config_1.yml" }
       it_behaves_like 'any'
     end
 
@@ -42,8 +42,8 @@ RSpec.describe SuperbTextConstructor do
       let(:expected_fields) { ['text'] }
       let(:expected_templates) { ['text', 'quote'] }
       before do
-        SuperbTextConstructor.configs_path = ["#{SuperbTextConstructor::Engine.root}/spec/fixtures/test_config_1.yml",
-                                      "#{SuperbTextConstructor::Engine.root}/spec/fixtures/test_config_2.yml"]
+        SuperbTextConstructor.configuration.configs_path = ["#{SuperbTextConstructor::Engine.root}/spec/fixtures/test_config_1.yml",
+                                                            "#{SuperbTextConstructor::Engine.root}/spec/fixtures/test_config_2.yml"]
       end
       it_behaves_like 'any'
     end

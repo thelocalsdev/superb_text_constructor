@@ -4,12 +4,25 @@ require 'superb_text_constructor/view_helpers/sanitize_block_helper'
 require 'superb_text_constructor/route_mappings'
 
 module SuperbTextConstructor
-  mattr_accessor :configs_path
-  mattr_accessor :default_namespace
-  mattr_accessor :additional_permitted_attributes
+  DEFAULTS = {
+    configs_path: nil,
+    default_namespace: 'default',
+    additional_permitted_attributes: nil
+  }
 
-  self.default_namespace = 'default'
-  self.additional_permitted_attributes = nil
+  mattr_accessor :configuration
+  self.configuration = OpenStruct.new
+
+  DEFAULTS.each do |key, value|
+    self.configuration.send("#{key}=", value)
+  end
+
+  def self.configure(&block)
+    yield(self.configuration)
+    require 'superb_text_constructor/concerns/models/block'
+    require 'superb_text_constructor/concerns/models/blockable'
+    require 'superb_text_constructor/concerns/controllers/blocks_controller'
+  end
 
   # @return [Hash] all available blocks in all namespaces
   def self.blocks
@@ -41,7 +54,7 @@ module SuperbTextConstructor
     # @return [Hash] merged configs
     def self.read_config
       result = {}
-      [configs_path].flatten.each do |file_path|
+      [self.configuration.configs_path].flatten.each do |file_path|
         result.deep_merge!(YAML.load_file(file_path))
       end
       result

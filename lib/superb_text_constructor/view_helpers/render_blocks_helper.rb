@@ -29,11 +29,10 @@ module SuperbTextConstructor
         # @option options [Hash] #see render_blocks
         # @return [String] partial name
         def partial_name_for(block, options = {})
-          namespace = options[:namespace] || SuperbTextConstructor.default_namespace
-          if lookup_context.template_exists?("superb_text_constructor/blocks/#{namespace}/#{block.template}", nil, true)
-            "superb_text_constructor/blocks/#{namespace}/#{block.template}"
+          if options[:namespace] && lookup_context.template_exists?("superb_text_constructor/blocks/#{options[:namespace]}/#{block.template}", nil, true)
+            "superb_text_constructor/blocks/#{options[:namespace]}/#{block.template}"
           else
-            "superb_text_constructor/blocks/#{SuperbTextConstructor.default_namespace}/#{block.template}"
+            "superb_text_constructor/blocks/#{SuperbTextConstructor.configuration.default_namespace}/#{block.template}"
           end
         end
 
