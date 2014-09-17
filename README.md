@@ -142,3 +142,20 @@ To render the resulting page use this helper:
 It will render post's blocks using partials from default namespace. Or you can specify the namespace:
 
     = render_blocks @post.blocks, namespace: :blog
+
+### Customization
+
+#### Layout
+
+There are 2 ways to customize layout:
+
+1. Override the whole `app/views/layouts/superb_text_constructor/application.html.erb` file. It is quite obvious.
+2. Override its customizable parts.
+
+Customizable parts are:
+
+* `app/assets/stylesheets/superb_text_constructor/custom.css` Additional CSS
+* `app/assets/javascripts/superb_text_constructor/custom.js` Additional Javascript
+* `app/views/superb_text_constructor/partials/menu.html.erb` Menu on layout
+
+All these parts are empty by default, so feel free to change them.
