@@ -36,7 +36,7 @@ module SuperbTextConstructor
 
   # @return [Array<String] list of available fields for all blocks
   def self.fields
-    blocks.map { |block, options| (options || {}).fetch('fields', {}).keys }.flatten.uniq
+    blocks.map { |block, options| (options || {}).fetch('fields', {}).select{|k,v| v.keys.exclude?("relation") }.keys }.flatten.uniq
   end
 
   # @return [Array<String] list of available block names
