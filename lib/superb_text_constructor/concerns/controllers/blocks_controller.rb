@@ -69,7 +69,7 @@ module SuperbTextConstructor
           end
 
           def set_parent
-            parent_param_name, parent_id = params.select { |param| param.to_s.end_with?('_id') }.first
+            parent_param_name, parent_id = params.dup.permit!.select { |param| param.to_s.end_with?('_id') }.first
             parent_class_name = parent_param_name.gsub(/_id\z/, '').camelize
             @parent = parent_class_name.constantize.find(parent_id)
           end
